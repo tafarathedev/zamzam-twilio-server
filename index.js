@@ -11,7 +11,9 @@ app.use(cors());
 app.use(express.json());
 
 const client = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
-
+app.get('/' ,(req,res)=>{
+  res.json('we are live')
+})
 app.post('/api/contact', async (req, res) => {
   const { name, email, phone, subject, message } = req.body;
 
